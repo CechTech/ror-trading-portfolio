@@ -47,7 +47,8 @@ config/master.key
 
 # ENV
 .env
-.env.*
+/.env.production
+/.env.development
 
 # System and IDE generated
 .DS_Store
