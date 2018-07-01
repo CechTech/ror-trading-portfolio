@@ -41,6 +41,9 @@ gem 'slim-rails', '~> 3.1', '>= 3.1.3'
 # Controller
 gem 'request_store', '~> 1.4', '>= 1.4.1'
 
+# Services
+gem 'httparty', '~> 0.16.2'
+
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
   gem 'bullet', '~> 5.7', '>= 5.7.5'
