@@ -16,21 +16,34 @@ class Coinbase
     }
   end
 
-  def accounts(id = nil)
+  def accounts(id = nil, subpath = nil)
     timestamp = time.to_s
     request_path = '/accounts'
+    request_path += "/#{id}" if id.present?
+    request_path += "/#{subpath}"
+
+    @options[:headers].merge!(
+      'CB-ACCESS-SIGN' => signature(request_path, '', timestamp),
+      'CB-ACCESS-TIMESTAMP' => timestamp
+    )
+    self.class.get(request_path, @options).parsed_response
+  end
+
+  def fills(id = nil)
+    timestamp = time.to_s
+    request_path = '/fills'
     request_path += "/#{id}" if id.present?
 
     @options[:headers].merge!(
       'CB-ACCESS-SIGN' => signature(request_path, '', timestamp),
       'CB-ACCESS-TIMESTAMP' => timestamp
     )
-    self.class.get(request_path, @options)
+    self.class.get(request_path, @options).parsed_response
   end
 
-  def fills(id = nil)
+  def orders(id = nil)
     timestamp = time.to_s
-    request_path = '/fills'
+    request_path = '/orders'
     request_path += "/#{id}" if id.present?
 
     @options[:headers].merge!(
