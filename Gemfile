@@ -43,6 +43,7 @@ gem 'request_store', '~> 1.4', '>= 1.4.1'
 
 # Services
 gem 'httparty', '~> 0.16.2'
+gem 'websocket-client-simple', '~> 0.3.0'
 
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
