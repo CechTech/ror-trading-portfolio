@@ -28,6 +28,18 @@ class Coinbase
     self.class.get(request_path, @options)
   end
 
+  def fills(id = nil)
+    timestamp = time.to_s
+    request_path = '/fills'
+    request_path += "/#{id}" if id.present?
+
+    @options[:headers].merge!(
+      'CB-ACCESS-SIGN' => signature(request_path, '', timestamp),
+      'CB-ACCESS-TIMESTAMP' => timestamp
+    )
+    self.class.get(request_path, @options).parsed_response
+  end
+
   def time
     self.class.get('/time', @options).parsed_response['epoch']
   end
