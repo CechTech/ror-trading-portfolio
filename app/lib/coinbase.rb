@@ -16,15 +16,16 @@ class Coinbase
     }
   end
 
-  def accounts
+  def accounts(id = nil)
     timestamp = time.to_s
+    request_path = '/accounts'
+    request_path += "/#{id}" if id.present?
 
     @options[:headers].merge!(
-      'CB-ACCESS-SIGN' => signature('/accounts', '', timestamp),
+      'CB-ACCESS-SIGN' => signature(request_path, '', timestamp),
       'CB-ACCESS-TIMESTAMP' => timestamp
     )
-    response = self.class.get('/accounts', @options)
-    ap response.parsed_response
+    self.class.get(request_path, @options)
   end
 
   def time
