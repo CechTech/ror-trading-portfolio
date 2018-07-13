@@ -14,6 +14,8 @@
 
 
 class Currency < ApplicationRecord
+  has_many :accounts
+
   validates :title, presence: true
   validates :symbol, presence: true
 
