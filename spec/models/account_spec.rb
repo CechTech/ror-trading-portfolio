@@ -1,3 +1,27 @@
+# == Schema Information
+#
+# Table name: accounts
+#
+#  id                  :bigint(8)        not null, primary key
+#  available           :decimal(, )
+#  balance             :decimal(, )
+#  description         :text
+#  hold                :decimal(, )
+#  title               :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  coinbase_account_id :string
+#  currency_id         :bigint(8)
+#
+# Indexes
+#
+#  index_accounts_on_currency_id  (currency_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (currency_id => currencies.id)
+#
+
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
