@@ -11,7 +11,10 @@ class FetchAccounts
                      .create_with(title: account['currency'])
                      .find_or_create_by!(symbol: account['currency'])
 
+        user = User.find_by(coinbase_profile_id: account['profile_id'])
+
         params = {
+          user: user,
           currency: currency,
           title: account['currency'],
           balance: account['balance'],
