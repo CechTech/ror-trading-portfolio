@@ -55,13 +55,14 @@ group :development, :test do
   gem 'spinach-rails', '~> 0.2.1'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0', '>= 2.0.1'
-  gem 'web-console', '~> 3.6', '>= 3.6.2'
 end
 
 group :development do
   gem 'annotate', '~> 2.7', '>= 2.7.4'
   gem 'pry-awesome_print', '~> 9.6', '>= 9.6.11'
   gem 'pry-rails', '~> 0.3.6'
+  gem 'spring-commands-rspec', '~> 1.0', '>= 1.0.4'
+  gem 'web-console', '~> 3.6', '>= 3.6.2'
 end
 
 group :test do
