@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -28,5 +30,23 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a valid factory' do
+    expect(FactoryBot.build(:user)).to be_valid
+  end
+
+  it 'is valid with a first name, last name, email, and password'
+  it 'is invalid without a first name'
+  it 'is invalid without a last name'
+
+  it 'is invalid without an email address' do
+    user = FactoryBot.build(:user, email: nil)
+    user.valid?
+    expect(user.errors[:email]).to include("can't be blank")
+  end
+
+  it 'is invalid with a duplicate email address'
+  it "returns a user's full name as a string" do
+    user = FactoryBot.build(:user)
+    expect(user.full_name).to eq 'John Doe'
+  end
 end

@@ -27,7 +27,6 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -37,4 +36,8 @@ class User < ApplicationRecord
   has_many :accounts
 
   validates :email, presence: true
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

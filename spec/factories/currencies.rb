@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: currencies
@@ -12,8 +14,8 @@
 
 FactoryBot.define do
   factory :currency do
-    title "MyString"
-    symbol "MyString"
-    description "MyText"
+    title { "MyString" }
+    symbol { "MyString" }
+    description { "MyText" }
   end
 end
