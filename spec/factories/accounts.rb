@@ -35,5 +35,7 @@ FactoryBot.define do
     hold { '9.99' }
     coinbase_account_id { 'MyString' }
     description { 'MyText' }
+    user
+    currency
   end
 end

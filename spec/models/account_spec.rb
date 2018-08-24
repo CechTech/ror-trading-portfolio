@@ -30,5 +30,12 @@
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a valid factory' do
+    expect(FactoryBot.build(:account)).to be_valid
+  end
+
+  it 'fetches associations' do
+    account = FactoryBot.create(:account)
+    ap account.currency
+  end
 end
