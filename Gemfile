@@ -49,7 +49,7 @@ group :development, :test do
   gem 'awesome_print', '~> 1.8'
   gem 'bullet', '~> 5.7', '>= 5.7.5'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot_rails', '~> 4.10'
+  gem 'factory_bot_rails', '~> 4.11'
   gem 'listen', '~> 3.1', '>= 3.1.5'
   gem 'rspec-rails', '~> 3.8'
   gem 'spinach-rails', '~> 0.2.1'
