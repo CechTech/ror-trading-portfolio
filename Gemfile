@@ -19,6 +19,7 @@ gem 'uglifier', '~> 4.1', '>= 4.1.13'
 # Extensions
 gem 'dotenv-rails', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'magic_frozen_string_literal', '~> 1.0', '>= 1.0.2'
 
 # Authentication
 gem 'devise', '~> 4.4', '>= 4.4.3'
