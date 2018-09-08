@@ -15,6 +15,9 @@ gem 'turbolinks', '~> 5.2'
 gem 'tzinfo-data', '~> 1.2018', '>= 1.2018.5'
 gem 'uglifier', '~> 4.1', '>= 4.1.18'
 
+# Frontend
+gem 'webpacker', '~> 3.5', '>= 3.5.5'
+
 # Extensions
 gem 'dotenv-rails', '~> 2.5'
 gem 'magic_frozen_string_literal', '~> 1.0', '>= 1.0.2'
