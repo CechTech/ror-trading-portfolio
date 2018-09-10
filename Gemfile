@@ -38,6 +38,7 @@ gem 'seedbank', '~> 0.4.0'
 
 # View
 gem 'slim-rails', '~> 3.1', '>= 3.1.3'
+gem 'devise-bootstrap-views', '~> 1.1'
 
 # Controller
 gem 'request_store', '~> 1.4', '>= 1.4.1'

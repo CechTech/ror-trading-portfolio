@@ -7,4 +7,6 @@ const application = Application.start()
 const context = require.context("controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
 
+import "jquery"
+import "jquery-ujs"
 import 'bootstrap'

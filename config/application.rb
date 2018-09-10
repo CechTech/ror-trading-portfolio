@@ -28,8 +28,11 @@ module RorTradingPortfolio
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    config.assets.enabled = false
+
     # Don't generate system test files.
     config.generators do |g|
+      g.assets false
       g.test_framework :rspec,
                        view_specs: false,
                        routing_specs: false
