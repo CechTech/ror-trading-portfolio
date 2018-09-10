@@ -1,9 +1,10 @@
-const { environment } = require('@rails/webpacker')
+const { environment } = require("@rails/webpacker");
+const pluginDashboard = require("./plugins/dashboard");
 
-environment.plugins.prepend('Provide', require('./plugins/provide').plugin)
+environment.plugins.prepend("Provide", require("./plugins/provide").plugin);
 
-if (process.env.NODE_ENV === 'development') {
-  environment.plugins.append('Dashboard', require('./plugins/dashboard').plugin)
+if (process.env.NODE_ENV === "development") {
+  environment.plugins.append("Dashboard", pluginDashboard.plugin);
 }
 
-module.exports = environment
+module.exports = environment;
