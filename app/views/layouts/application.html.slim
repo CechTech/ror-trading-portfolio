@@ -9,8 +9,9 @@ html
     = javascript_pack_tag 'application'
   body
     == render 'shared/navigation'
-    p class="notice"
-      = notice
-    p class="alert"
-      = alert
-    == yield
+    .container
+      p class="notice"
+        = notice
+      p class="alert"
+        = alert
+      == yield
