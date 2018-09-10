@@ -1,7 +1,7 @@
-const Dashboard = require('webpack-dashboard');
-const DashboardPlugin = require('webpack-dashboard/plugin');
+const Dashboard = require("webpack-dashboard");
+const DashboardPlugin = require("webpack-dashboard/plugin");
 
-var dashboard = new Dashboard();
+const dashboard = new Dashboard();
 
 module.exports = {
   plugin: new DashboardPlugin({
@@ -9,4 +9,3 @@ module.exports = {
     handler: dashboard.setData
   })
 };
-
