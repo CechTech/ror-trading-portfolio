@@ -1,23 +1,9 @@
 const { environment } = require('@rails/webpacker')
-const webpack = require('webpack')
 
-// region Plugins
+environment.plugins.prepend('Provide', require('./plugins/provide').plugin)
+
 if (process.env.NODE_ENV === 'development') {
-  const pluginDashboard = require('./plugins/dashboard')
-
-  environment.plugins.append('Dashboard', pluginDashboard.plugin)
+  environment.plugins.append('Dashboard', require('./plugins/dashboard').plugin)
 }
-// endregion
-
-environment.plugins.prepend(
-  'Provide',
-  new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    jquery: 'jquery',
-    'window.jQuery': 'jquery',
-    Popper: ['popper.js', 'default']
-  })
-)
 
 module.exports = environment
