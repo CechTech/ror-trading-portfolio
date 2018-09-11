@@ -2,9 +2,12 @@ import { Controller } from "stimulus";
 import Chart from "chart.js";
 
 export default class extends Controller {
+  connect() {
+    this.fetch();
+  }
+
   fetch() {
-    const ctx = document.getElementById("myChart");
-    return new Chart(ctx, {
+    return new Chart($("#myChart"), {
       type: "bar",
       data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
