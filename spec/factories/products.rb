@@ -12,8 +12,12 @@
 
 FactoryBot.define do
   factory :product do
-    title { "MyString" }
-    symbol { "MyString" }
-    description { "MyString" }
+    title { 'MyString' }
+    symbol { 'MyString' }
+    description { 'MyString' }
+
+    trait :with_orders do
+      after(:create) { |product| create_list(:order, 5, product: product) }
+    end
   end
 end
