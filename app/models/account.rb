@@ -31,6 +31,8 @@ class Account < ApplicationRecord
   belongs_to :user
   belongs_to :currency
 
+  has_many :account_records
+
   validates :title, presence: true
   validates :coinbase_account_id, presence: true
 end
