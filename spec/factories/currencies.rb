@@ -17,5 +17,9 @@ FactoryBot.define do
     title { "MyString" }
     symbol { "MyString" }
     description { "MyText" }
+
+    trait :with_accounts do
+      after(:create) { |currency| create_list(:account, 5, currency: currency) }
+    end
   end
 end
