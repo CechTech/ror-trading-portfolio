@@ -34,7 +34,17 @@ RSpec.describe User, type: :model do
     expect(FactoryBot.build(:user)).to be_valid
   end
 
-  it 'is valid with a first name, last name, email, and password'
+  it 'is valid with an email, and password' do
+    user = User.new(
+      email: 'tester@example.com',
+      password: 'dottle-nouveau-pavilion-tights-furze'
+    )
+    expect(user).to be_valid
+  end
+
+  it { is_expected.to validate_presence_of :email }
+  it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
+
   it 'is invalid without a first name'
   it 'is invalid without a last name'
 

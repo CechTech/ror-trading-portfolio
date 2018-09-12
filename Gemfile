@@ -37,8 +37,8 @@ gem 'ffaker', '~> 2.10'
 gem 'seedbank', '~> 0.4.0'
 
 # View
-gem 'slim-rails', '~> 3.1', '>= 3.1.3'
 gem 'devise-bootstrap-views', '~> 1.1'
+gem 'slim-rails', '~> 3.1', '>= 3.1.3'
 
 # Controller
 gem 'request_store', '~> 1.4', '>= 1.4.1'
@@ -67,5 +67,8 @@ end
 group :test do
   gem 'database_cleaner', '~> 1.7'
   gem 'simplecov', '~> 0.16.1'
+  gem 'shoulda-matchers',
+      git: 'https://github.com/thoughtbot/shoulda-matchers.git',
+      branch: 'rails-5'
 end
 # endregion
