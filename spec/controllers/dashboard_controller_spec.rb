@@ -13,7 +13,7 @@ RSpec.describe DashboardController, type: :controller do
         sign_in @user
         get :index
         aggregate_failures do
-          expect(response).to be_success
+          expect(response).to be_successful
           expect(response).to have_http_status '200'
         end
       end
