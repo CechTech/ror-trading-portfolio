@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_13_121255) do
+ActiveRecord::Schema.define(version: 2018_09_11_190620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,38 @@ ActiveRecord::Schema.define(version: 2018_07_13_121255) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.decimal "price"
+    t.decimal "size"
+    t.decimal "fill_fees"
+    t.decimal "filled_size"
+    t.decimal "executed_value"
+    t.decimal "funds"
+    t.decimal "specified_funds"
+    t.boolean "post_only", default: true, null: false
+    t.boolean "settled", default: false, null: false
+    t.datetime "done_at"
+    t.string "done_reason"
+    t.string "time_in_force"
+    t.string "stp"
+    t.string "coinbase_order_id"
+    t.integer "order_type"
+    t.integer "status"
+    t.integer "side"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.string "symbol"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -60,4 +92,5 @@ ActiveRecord::Schema.define(version: 2018_07_13_121255) do
 
   add_foreign_key "accounts", "currencies"
   add_foreign_key "accounts", "users"
+  add_foreign_key "orders", "products"
 end
