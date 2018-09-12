@@ -34,9 +34,16 @@ RSpec.describe User, type: :model do
     expect(FactoryBot.build(:user)).to be_valid
   end
 
-  it 'is valid with a first name, last name, email, and password'
-  it 'is invalid without a first name'
-  it 'is invalid without a last name'
+  it 'is valid with an email, and password' do
+    user = User.new(
+      email: 'tester@example.com',
+      password: 'dottle-nouveau-pavilion-tights-furze'
+    )
+    expect(user).to be_valid
+  end
+
+  it { is_expected.to validate_presence_of :email }
+  it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
 
   it 'is invalid without an email address' do
     user = FactoryBot.build(:user, email: nil)
@@ -44,7 +51,6 @@ RSpec.describe User, type: :model do
     expect(user.errors[:email]).to include("can't be blank")
   end
 
-  it 'is invalid with a duplicate email address'
   it "returns a user's full name as a string" do
     user = FactoryBot.build(:user)
     expect(user.full_name).to eq 'John Doe'

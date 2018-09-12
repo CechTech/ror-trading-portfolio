@@ -27,10 +27,9 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-
 FactoryBot.define do
   factory :user do
-    email { 'tester@example.com' }
+    sequence(:email) { |n| "tester#{n}@example.com" }
     first_name { 'John' }
     last_name { 'Doe' }
     password { '123456789' }

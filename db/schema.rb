@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_190620) do
+ActiveRecord::Schema.define(version: 2018_09_12_105943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_records", force: :cascade do |t|
+    t.decimal "amount"
+    t.decimal "balance"
+    t.string "coinbase_trade_id"
+    t.string "coinbase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "account_id"
+    t.index ["account_id"], name: "index_account_records_on_account_id"
+  end
 
   create_table "accounts", force: :cascade do |t|
     t.string "title"
@@ -90,6 +101,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_190620) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "account_records", "accounts"
   add_foreign_key "accounts", "currencies"
   add_foreign_key "accounts", "users"
   add_foreign_key "orders", "products"
