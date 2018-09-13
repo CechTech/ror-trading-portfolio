@@ -30,6 +30,7 @@ gem 'rolify', '~> 5.2'
 
 # Model
 gem 'auto_strip_attributes', '~> 2.5'
+gem 'enumerize', '~> 2.2', '>= 2.2.2'
 gem 'nilify_blanks', '~> 1.3'
 
 # DB
@@ -66,9 +67,9 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.7'
-  gem 'simplecov', '~> 0.16.1'
   gem 'shoulda-matchers',
       git: 'https://github.com/thoughtbot/shoulda-matchers.git',
       branch: 'rails-5'
+  gem 'simplecov', '~> 0.16.1'
 end
 # endregion

@@ -5,6 +5,7 @@
 #  id                :bigint(8)        not null, primary key
 #  amount            :decimal(, )
 #  balance           :decimal(, )
+#  record_type       :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  account_id        :bigint(8)
@@ -22,6 +23,7 @@
 
 FactoryBot.define do
   factory :account_record do
+    record_type { '1' }
     amount { '9.99' }
     balance { '9.99' }
     coinbase_trade_id { 'MyString' }
